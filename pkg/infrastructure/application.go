@@ -11,7 +11,7 @@ type application struct {
 
 func createApplication(is *infrastructure) application {
 	var app application
-	app.Stack = awscdk.NewStack(*is.app, jsii.String(string(Application)), &is.prop.StackProps)
+	app.Stack = awscdk.NewStack(*is.app, jsii.String(string(Application)), &is.prop.Stack)
 
 	return app
 }

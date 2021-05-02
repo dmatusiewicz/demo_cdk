@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
 	"gopkg.in/yaml.v2"
 )
 
@@ -25,8 +26,12 @@ type infrastructure struct {
 }
 
 type infrastructureProperties struct {
-	awscdk.StackProps `yaml:",inline"`
-	Xx                string `yaml:"x"`
+	Stack      awscdk.StackProps            `yaml:"stack"`
+	Codebuild  awscodebuild.CfnProjectProps `yaml:"codebuild"`
+	CustomTest string                       `yaml:"customTestKey"`
+}
+
+type cbp struct {
 }
 
 //go:embed conf/*
@@ -68,6 +73,7 @@ func getInfraProperties(envName string, app awscdk.App, it InfrastructureType) *
 	}
 
 	ip := infrastructureProperties{}
+
 	err = yaml.Unmarshal([]byte(data), &ip)
 	if err != nil {
 		log.Fatalf("cannot unmarshal data: %v", err)

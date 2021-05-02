@@ -1,8 +1,15 @@
 ---
-  tags:
-    Name: "dev"
-    MangedBy: CloudFormation
-  x: Test new val
-  env:
-    region: eu-west-1
-  description: Development environment test
+  customTestKey: customTestVal
+
+  stack:
+    tags:
+      Name: "dev"
+      MangedBy: CloudFormation
+    env:
+      region: eu-west-1
+    description: Development environment test
+
+  codebuild:
+    artifacts: zonk
+    environment: 
+      type: LINUX_CONTAINER
