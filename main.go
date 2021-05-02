@@ -6,17 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk"
 )
 
+// This will be read from the environment variables.
 var environmentName = "dev"
-
-const (
-	application infrastructure.InfrastructureType = "application"
-	managemeent infrastructure.InfrastructureType = "management"
-)
 
 func main() {
 	app := awscdk.NewApp(nil)
 
-	infrastructure.Factory(app, environmentName, application)
-	// fmt.Println(s)
+	infrastructure.Factory(app, environmentName, infrastructure.Application)
+	infrastructure.Factory(app, environmentName, infrastructure.Pipeline)
+
 	app.Synth(nil)
 }

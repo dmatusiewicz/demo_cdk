@@ -9,13 +9,9 @@ type application struct {
 	awscdk.Stack
 }
 
-func createApplication(is infrastructureSettings) application {
+func createApplication(is *infrastructure) application {
 	var app application
+	app.Stack = awscdk.NewStack(*is.app, jsii.String(string(Application)), &is.prop.StackProps)
 
-	app.Stack = awscdk.NewStack(is.app, jsii.String("application"), is.StackProps)
-	awscdk.NewCfnOutput(app.Stack, jsii.String("exportFromApp"), &awscdk.CfnOutputProps{
-		Value:      jsii.String("val1"),
-		ExportName: jsii.String("exportFromApp"),
-	})
 	return app
 }
