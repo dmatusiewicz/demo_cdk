@@ -1,0 +1,18 @@
+# Can AWS CDK replace Terraform?
+Dawid Matusiewicz
+
+## Table of content
+* Introduction
+* Area of responsibility
+* Handling variables
+* Testing 
+* Code re-usability 
+* Documentation
+
+## More slides
+
+.code ../main.go  /START OMIT/,/END OMIT/ HL1
+
+
+## Test
+kkk

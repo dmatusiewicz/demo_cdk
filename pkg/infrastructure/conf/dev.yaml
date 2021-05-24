@@ -3,13 +3,19 @@
 
   stack:
     tags:
-      Name: "dev"
       MangedBy: CloudFormation
     env:
       region: eu-west-1
     description: Development environment test
 
   codebuild:
-    artifacts: zonk
+    artifacts: 
+      type: NO_ARTIFACTS
     environment: 
       type: LINUX_CONTAINER
+      image: aws/codebuild/standard:4.0
+      computeType: BUILD_GENERAL1_SMALL
+    source:
+      type: GITHUB
+      location: "https://github.com/dmatusiewicz/demo_cdk"
+      
