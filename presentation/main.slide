@@ -4,15 +4,17 @@ Dawid Matusiewicz
 ## Table of content
 * Introduction
 * Area of responsibility
-* Handling variables
+* Handling parameters
 * Testing 
 * Code re-usability 
 * Documentation
 
-## More slides
+## Area of responsibility
 
 .code ../main.go  /START OMIT/,/END OMIT/ HL1
 
 
-## Test
-kkk
+## Handling parameters
+.code ../pkg/infrastructure/landingZone.go /START_PARAMETER OMIT/,/END_PARAMETER OMIT/ HL1
+.code ../pkg/infrastructure/landingZone.go /START_OUTPUT OMIT/,/END_OUTPUT OMIT/ HL1
+.code ../pkg/infrastructure/application.go /START_IMPORT OMIT/,/END_IMPORT OMIT/ HL1
