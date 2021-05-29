@@ -1,10 +1,8 @@
-# Welcome to your CDK Go project!
+# Welcome to DEMO_CDK!
 
-This is a blank project for Go development with CDK.
+I'm experimenting with AWS CDK for Golang. 
 
-**NOTICE**: Go support is still in Developer Preview. This implies that APIs may
-change while we address early feedback from the community. We would love to hear
-about your experience through GitHub issues.
+**NOTICE**: Go support is still in Developer Preview.
 
 ## Useful commands
 
@@ -12,3 +10,7 @@ about your experience through GitHub issues.
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
  * `go test`         run unit tests
+
+ ## Presentation 
+ 
+ Slides are avalible in the **./presentation** folder.
