@@ -13,8 +13,8 @@ Dawid Matusiewicz
 
 .code ../main.go  /START OMIT/,/END OMIT/ HL1
 
-
 ## Handling parameters
 .code ../pkg/infrastructure/landingZone.go /START_PARAMETER OMIT/,/END_PARAMETER OMIT/ HL1
 .code ../pkg/infrastructure/landingZone.go /START_OUTPUT OMIT/,/END_OUTPUT OMIT/ HL1
 .code ../pkg/infrastructure/application.go /START_IMPORT OMIT/,/END_IMPORT OMIT/ HL1
+
