@@ -23,16 +23,22 @@ func createLandingZone(is *infrastructure) landingZone {
 	k := awskms.NewKey(lz.Stack, nameBuilder(lz.Stack, "kms"), &awskms.KeyProps{})
 	k.AddAlias(nameBuilder(lz.Stack, "kms"))
 
-	awsssm.NewStringParameter(lz.Stack, nameBuilder(lz.Stack, "ssm-kms"), &awsssm.StringParameterProps{
-		StringValue:   k.KeyArn(),
-		ParameterName: nameBuilder(lz.Stack, "ssm-kms"),
-		Description:   jsii.String("Landing Zone KMS Key ARN."),
-	})
-
-	awscdk.NewCfnOutput(lz.Stack, nameBuilder(lz.Stack, "Key_ARN"), &awscdk.CfnOutputProps{
-		ExportName: jsii.String("Key-ARN"),
-		Value:      k.KeyArn(),
-	})
+	// START_PARAMETER OMIT
+	awsssm.NewStringParameter(lz.Stack, nameBuilder(lz.Stack, "ssm-keyArn"), // HL1
+		&awsssm.StringParameterProps{ // HL1
+			StringValue:   k.KeyArn(),
+			ParameterName: nameBuilder(lz.Stack, "keyArn"),
+			Description:   jsii.String("KeyARN parameter - reference it from another component. Loosely coupled."),
+		})
+	// END_PARAMETER OMIT
+	// START_OUTPUT OMIT
+	awscdk.NewCfnOutput(lz.Stack, nameBuilder(lz.Stack, "output-keyArn"), // HL1
+		&awscdk.CfnOutputProps{ // HL1
+			ExportName:  nameBuilder(lz.Stack, "keyArn"),
+			Value:       k.KeyArn(),
+			Description: jsii.String("KeyARN parameter - import it to another component. Mind tight components coupling."),
+		})
+	// END_OUTPUT OMIT
 
 	return lz
 }
